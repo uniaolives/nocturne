@@ -1,0 +1,10 @@
+[package]
+name = "nocturne-sdk"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+nocturne-core = { path = "../nocturne-core" }
+
+[dev-dependencies]
+serde_json = "1.0"

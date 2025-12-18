@@ -1,0 +1,10 @@
+# Rust
+/target/
+.rustc_info.json
+
+# IDEs
+.idea/
+.vscode/
+
+# OS
+.DS_Store
