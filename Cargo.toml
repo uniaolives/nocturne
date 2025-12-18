@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "nocturne-core",
+    "nocturne-sdk",
+    "nocthub-golden",
+]
