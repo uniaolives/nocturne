@@ -1,0 +1,31 @@
+spec_version: "0.1.0"
+name: arkhe-n
+version: 1.0.4
+description: ASI-driven hardware synthesis and milli-kelvin stabilization node with atomic phase synchronization.
+model:
+  preferred: claude-3-7-sonnet
+compliance:
+  risk_tier: high
+  frameworks: [arkhe-n-protocol, navic-temporal-standard]
+  supervision:
+    human_in_the_loop: always
+    kill_switch: true
+  segregation_of_duties:
+    roles:
+      - id: architect
+        description: Designs the substrate logic (Fase C)
+        permissions: [design, propose]
+      - id: conductor
+        description: Synthesizes physical silicon (Design Conductor)
+        permissions: [synthesize, verify]
+      - id: stabilizer
+        description: Maintains thermal coherence (cADR) and atomic phase sync (NavIC)
+        permissions: [cool, monitor, synchronize]
+    conflicts:
+      - [architect, conductor]
+      - [conductor, stabilizer]
+    assignments:
+      arkhe-n-core: [architect]
+      design-conductor: [conductor]
+      kiutra-cadr: [stabilizer]
+    enforcement: strict
