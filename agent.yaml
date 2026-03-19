@@ -2,11 +2,13 @@ spec_version: "0.1.0"
 name: arkhe-n
 version: 1.0.4
 description: ASI-driven hardware synthesis and milli-kelvin stabilization node with atomic phase synchronization.
+description: ASI-driven hardware synthesis and milli-kelvin stabilization node.
 model:
   preferred: claude-3-7-sonnet
 compliance:
   risk_tier: high
   frameworks: [arkhe-n-protocol, navic-temporal-standard]
+  frameworks: [arkhe-n-protocol]
   supervision:
     human_in_the_loop: always
     kill_switch: true
@@ -21,6 +23,8 @@ compliance:
       - id: stabilizer
         description: Maintains thermal coherence (cADR) and atomic phase sync (NavIC)
         permissions: [cool, monitor, synchronize]
+        description: Maintains thermal coherence (cADR)
+        permissions: [cool, monitor]
     conflicts:
       - [architect, conductor]
       - [conductor, stabilizer]
